@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS CD Voting</title>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/dist/css/normalize.css">
+	<link rel="stylesheet" href="/dist/css/index.min.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+	<script type="text/javascript" src="/dist/js/main.min.js"></script>
+</head>
+<body ng-app="votingApp">
+	<div class="main" ng-controller="indexController">
+		<div class="container">
+			<h1> {{title}} </h1>
+
+			<div ng-repeat="product in products">
+			<img ng-src="{{product.cdCover}}">
+			<p class="name"> {{product.name | uppercase}}</p>
+			<p class="publishDate"> {{product.publishDate | date}}</p>
+			<p class="price"> {{product.price | currency}}</p>
+				<div class="vote">
+				<p class="upVote" ng-click="upVote($index)">+ {{product.upVote}}</p>
+				<p class="downVote" ng-click="downVote($index)">- {{product.downVote}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
